@@ -1,0 +1,24 @@
+site_name: Python Projects
+site_description: Various Python projects for learning and practice
+site_author: eddmtzarias
+repo_url: https://github.com/eddmtzarias/PythonProjects
+repo_name: eddmtzarias/PythonProjects
+
+theme:
+  name: material
+  palette:
+    primary: blue
+    accent: light-blue
+  features:
+    - navigation.instant
+    - navigation.tabs
+    - content.code.copy
+
+nav:
+  - Home: index.md
+
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - toc:
+      permalink: true
