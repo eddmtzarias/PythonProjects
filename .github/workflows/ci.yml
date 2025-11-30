@@ -42,11 +42,11 @@ jobs:
 
       - name: Run tests with pytest and coverage
         run: |
-          coverage run -m pytest projects/ -v --tb=short || true
+          coverage run -m pytest projects/ -v --tb=short
           coverage report --fail-under=0
 
       - name: Security scan with bandit
-        run: bandit -r projects/ -ll || true
+        run: bandit -r projects/ -ll
 
       - name: Audit dependencies with pip-audit
-        run: pip-audit || true
+        run: pip-audit
