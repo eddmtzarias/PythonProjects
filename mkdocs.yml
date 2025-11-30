@@ -1,0 +1,26 @@
+site_name: PythonProjects
+site_description: Various Python projects for learning and reference
+site_url: https://eddmtzarias.github.io/PythonProjects/
+repo_url: https://github.com/eddmtzarias/PythonProjects
+repo_name: eddmtzarias/PythonProjects
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: blue
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: blue
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+nav:
+  - Home: index.md
+
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.superfences
