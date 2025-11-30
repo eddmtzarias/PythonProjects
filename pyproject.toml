@@ -1,0 +1,68 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pythonprojects"
+version = "1.0.0"
+description = "Various Python projects"
+readme = "README.md"
+license = {file = "LICENCE"}
+requires-python = ">=3.10"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+[project.optional-dependencies]
+dev = [
+    "black>=24.10.0",
+    "isort>=5.13.2",
+    "flake8>=7.1.1",
+    "mypy>=1.13.0",
+    "pytest>=8.3.0",
+    "coverage>=7.6.0",
+    "bandit>=1.7.0",
+    "pip-audit>=2.7.0",
+    "detect-secrets>=1.5.0",
+    "pre-commit>=4.0.0",
+    "twine>=5.1.0",
+    "build>=1.2.0",
+    "mkdocs>=1.6.0",
+    "mkdocs-material>=9.5.0",
+]
+
+[tool.black]
+line-length = 100
+target-version = ['py310', 'py311']
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.venv
+  | venv
+  | __pycache__
+  | \.pytest_cache
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 100
+skip_gitignore = true
+
+[tool.coverage.run]
+source = ["projects"]
+omit = ["*/__pycache__/*", "*/tests/*"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "if __name__ == .__main__.:",
+]

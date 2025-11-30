@@ -8,23 +8,23 @@ Find the number of steps it takes to reach one using the following process:
 
 
 def collatz(user_no: int) -> None:
-  current_no = user_no
-  print(current_no)
-  steps = 0
-
-  while current_no != 1:
-    if current_no % 2 == 0:
-      current_no //= 2
-    else:
-      current_no = (current_no * 3) + 1
-    steps += 1
+    current_no = user_no
     print(current_no)
+    steps = 0
 
-  print(f'Took {steps} steps.')
+    while current_no != 1:
+        if current_no % 2 == 0:
+            current_no //= 2
+        else:
+            current_no = (current_no * 3) + 1
+        steps += 1
+        print(current_no)
+
+    print(f"Took {steps} steps.")
 
 
-if __name__ == '__main__':
-  print('This program will perform the Collatz conjecture on a given whole number.')
-  num = int(input('Please enter a number: '))
+if __name__ == "__main__":
+    print("This program will perform the Collatz conjecture on a given whole number.")
+    num = int(input("Please enter a number: "))
 
-  collatz(num)
+    collatz(num)
