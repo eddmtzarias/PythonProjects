@@ -1,0 +1,69 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pythonprojects"
+version = "0.1.0"
+description = "Various Python projects collection"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "eddmtzarias"}
+]
+requires-python = ">=3.10"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "black>=24.3.0",
+    "isort>=5.13.2",
+    "flake8>=7.0.0",
+    "mypy>=1.9.0",
+    "pytest>=8.1.0",
+    "coverage>=7.4.0",
+    "pytest-cov>=4.1.0",
+    "bandit>=1.7.8",
+    "pip-audit>=2.7.2",
+    "pre-commit>=3.7.0",
+    "detect-secrets>=1.4.0",
+]
+
+[tool.black]
+line-length = 88
+target-version = ['py310', 'py311']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+    \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+  | bazel-*
+)/
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 88
+skip_gitignore = true
+skip = [".gitignore", "bazel-*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py", "*_test.py"]
+addopts = "-v --cov=projects --cov-report=term-missing"
