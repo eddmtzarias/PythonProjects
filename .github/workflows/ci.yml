@@ -42,12 +42,13 @@ jobs:
         run: mypy projects/ --ignore-missing-imports
 
       - name: Run tests with pytest and coverage
+        continue-on-error: true
         run: |
-          coverage run -m pytest projects/ -v --tb=short || true
-          coverage report || true
+          coverage run -m pytest projects/ -v --tb=short
+          coverage report
 
       - name: Security check with bandit
-        run: bandit -r projects/ -ll || true
+        run: bandit -r projects/ -ll
 
       - name: Audit dependencies with pip-audit
-        run: pip-audit || true
+        run: pip-audit
